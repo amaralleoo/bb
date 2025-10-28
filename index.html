@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>oi</title>
+
+    <style>
+        body {
+            margin: 0;
+            background-image: url('gab.jpeg');
+            background-repeat: repeat;
+            background-position: center;
+            background-attachment: fixed;
+            background-size: 400px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .painel {
+            margin: 100px auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            width: 500px;
+            height: 500px;
+            border-radius: 20px;
+            text-align: center;
+            padding-top: 50px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        #sim {
+            height: 40px;
+            width: 80px;
+            background-color: #7400a1e7; ;
+            border: 2px solid white;
+            border-radius: 10px;
+            color: white;
+            margin-left: -50px;
+            cursor: pointer;
+            font-size: 16px;
+            animation: pulsar 1.2s infinite;
+            transition: transform 0.2s ease;
+        }
+
+        /* Efeito de clique */
+        #sim:active {
+            animation: clickAnim 0.3s;
+        }
+
+        @keyframes clickAnim {
+            0% { transform: scale(1); }
+            50% { transform: scale(0.85) rotate(3deg); background-color: #7400a1e7;  }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes pulsar {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); background-color: #7400a1e7; }
+            100% { transform: scale(1); }
+        }
+
+        #nao {
+            position: absolute;
+            height: 40px;
+            width: 80px;
+            background-color: #7400a1e7; ;
+            border: 2px solid white;
+            border-radius: 10px;
+            color: white;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="painel">
+        <img src="cartao.png" alt="Cartão" width="300">
+        <h2>posso clonar o seu cartão?</h2>
+
+        <button id="sim" onclick="clicou()">Sim!</button>
+        <button onmouseover="fuja()" id="nao">Não!</button>
+    </div>
+
+    <script>
+        function fuja() {
+            var botaoNao = document.getElementById("nao");
+            var larguraJanela = window.innerWidth;
+            var alturaJanela = window.innerHeight;
+            var maxX = larguraJanela - botaoNao.offsetWidth;
+            var maxY = alturaJanela - botaoNao.offsetHeight;
+            var aleatorioX = Math.floor(Math.random() * maxX);
+            var aleatorioY = Math.floor(Math.random() * maxY);
+            botaoNao.style.left = aleatorioX + "px";
+            botaoNao.style.top = aleatorioY + "px";
+        }
+
+        function clicou() {
+            alert("relaxe enquanto clonamos o seu cartao! ❤️");
+            window.open("https://www.youtube.com/watch?v=khG5ZlppKhw&list=RDkhG5ZlppKhw&start_radio=1", "_blank");
+        }
+    </script>
+</body>
+</html>
